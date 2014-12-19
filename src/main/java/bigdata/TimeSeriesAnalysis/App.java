@@ -35,6 +35,8 @@ public class App extends TimeSeries
 	
 	protected static String NAME;
 	
+	//protected static ServerConfiguration serverConfiguration;
+	
 	protected Map<String, Map<String, Float[]>> textMap;
 	
 	protected Map<String, Float[]> cleanedMap;
@@ -50,6 +52,7 @@ public class App extends TimeSeries
 	public App(String projectName) {
 		super(projectName);
 		App.NAME = projectName;
+		//App.serverConfiguration = new ServerConfiguration();
 		this.textMap =  Collections.synchronizedMap(new LinkedHashMap<String, Map<String, Float[]>>());
 		this.cleanedMap = Collections.synchronizedMap(new LinkedHashMap<String, Float[]>());
 	}

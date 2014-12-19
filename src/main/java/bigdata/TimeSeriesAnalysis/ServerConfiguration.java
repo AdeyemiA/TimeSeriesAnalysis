@@ -11,6 +11,8 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,7 +34,7 @@ public class ServerConfiguration {
 	}
 	
 	private static void init() {
-		
+		ServerConfiguration.readConfigFile("./resources/");
 	}
 	
 	/**
@@ -84,5 +86,27 @@ public class ServerConfiguration {
 		}
 		return tmpMap;
 	}
-
+	
+	/**
+	 * 
+	 * @param property - the property string to extract from the server configuration
+	 * @return value - The value that the key maps to
+	 */
+	public static String getConfiguration(String property) {
+		return (ServerConfiguration.configMap.containsKey(property)) ? ServerConfiguration.configMap.get(property) : null;
+	}
+	
+	/**
+	 * 
+	 * @param properties - a list of properties to extract from the server configuration
+	 * @return Map<Property, Value> - A map of properties corresponding to the values of the properties
+	 * 			Properties not defined in the configuration returns a null value
+	 */
+	public static Map<String, String> getConfiguration(List<String> properties) {
+		Map<String, String> tmpMap = new ConcurrentHashMap<String, String>();
+		for(String property : properties) {
+			tmpMap.put(property, (configMap.containsKey(property)) ? configMap.get(property) : null);
+		}
+		return tmpMap;
+	}
 }
