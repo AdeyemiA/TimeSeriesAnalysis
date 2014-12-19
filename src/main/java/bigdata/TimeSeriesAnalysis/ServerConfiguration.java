@@ -26,15 +26,36 @@ import org.slf4j.LoggerFactory;
 public class ServerConfiguration {
 	protected static Logger log = LoggerFactory.getLogger(ServerConfiguration.class);
 	
-	protected static Map<String, String> configMap;
+	protected static Object m_Object = new Object();
+	
+	protected static ServerConfiguration serverConfiguration = null;
+	
+	protected Map<String, String> configMap;
 	
 	public ServerConfiguration() {
-		ServerConfiguration.configMap = new ConcurrentHashMap<String, String>();
-		ServerConfiguration.init();
+		this.configMap = new ConcurrentHashMap<String, String>();
+		this.init();
 	}
 	
-	private static void init() {
-		ServerConfiguration.readConfigFile("./resources/");
+	/**
+	 *  Initialize the properties map by reading config.properties
+	 */
+	private void init() {
+		this.configMap = ServerConfiguration.readConfigFile("./resources/");
+	}
+	
+	/**
+	 * 
+	 * @return - A ServerConfiguration Object
+	 */
+	private static ServerConfiguration getInstance() {
+		// make sure there is only one copy of the ServerConfigurtion
+		synchronized(m_Object) {
+			if(serverConfiguration == null) {
+				serverConfiguration = new ServerConfiguration();
+			}
+		}
+		return serverConfiguration;
 	}
 	
 	/**
@@ -46,6 +67,7 @@ public class ServerConfiguration {
 		Path fileDirPath = FileSystems.getDefault().getPath(fileDir);
 		Map<String, String> tmpMap = new ConcurrentHashMap<String, String>();
 
+		//  get a directory stream and list files in the fileDirPath
 		try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(fileDirPath)) {
 			BufferedReader bufferedRead = null;
 			String line = null;
@@ -54,6 +76,7 @@ public class ServerConfiguration {
 					try {
 						bufferedRead = new BufferedReader(new FileReader(pathName.toString()));
 						while( (line = bufferedRead.readLine()) != null) {
+							// check if the line has a key value pairing
 							String[] configSettings = line.split("=");
 							if(configSettings.length == 2) {
 								tmpMap.put(configSettings[0].trim(), configSettings[1].trim());
@@ -93,7 +116,8 @@ public class ServerConfiguration {
 	 * @return value - The value that the key maps to
 	 */
 	public static String getConfiguration(String property) {
-		return (ServerConfiguration.configMap.containsKey(property)) ? ServerConfiguration.configMap.get(property) : null;
+		ServerConfiguration serverConfiguration = getInstance();
+		return (serverConfiguration.configMap.containsKey(property)) ? serverConfiguration.configMap.get(property) : null;
 	}
 	
 	/**
@@ -103,9 +127,10 @@ public class ServerConfiguration {
 	 * 			Properties not defined in the configuration returns a null value
 	 */
 	public static Map<String, String> getConfiguration(List<String> properties) {
+		ServerConfiguration serverConfiguration = getInstance();
 		Map<String, String> tmpMap = new ConcurrentHashMap<String, String>();
 		for(String property : properties) {
-			tmpMap.put(property, (configMap.containsKey(property)) ? configMap.get(property) : null);
+			tmpMap.put(property, (serverConfiguration.configMap.containsKey(property)) ? serverConfiguration.configMap.get(property) : null);
 		}
 		return tmpMap;
 	}

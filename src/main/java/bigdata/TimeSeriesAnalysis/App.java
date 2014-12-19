@@ -47,7 +47,7 @@ public class App extends TimeSeries
 	
 	protected static String FILE_BASE = "Out";
 	
-	protected static String DATA_DIR = "/home/adeyemi/workspace/TimeSeriesAnalysis/data/";
+	protected static String DATA_DIR = "/home/adeyemi/workspace/TimeSeriesAnalysis_bckup/data/";
 	
 	public App(String projectName) {
 		super(projectName);
@@ -296,5 +296,11 @@ public class App extends TimeSeries
         System.out.println("*****************************************");
         
         System.out.println(newApp.cleanedMap.size());
+        
+        
+        String mont = ServerConfiguration.getConfiguration("autumn");
+        System.out.println("The autumn months is : " + mont);
     }
+
+
 }
