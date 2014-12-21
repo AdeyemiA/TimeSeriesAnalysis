@@ -1,16 +1,16 @@
 #surefire
-#Thu Dec 18 20:50:08 EST 2014
-testClassesDirectory=/home/adeyemi/workspace/TimeSeriesAnalysis/target/test-classes
+#Sat Dec 20 16:47:42 EST 2014
+testClassesDirectory=/home/adeyemi/Documents/TimeSeriesAnalysis/target/test-classes
 classPathUrl.4=/home/adeyemi/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar
 forkMode=once
 classPathUrl.3=/home/adeyemi/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar
 classPathUrl.2=/home/adeyemi/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
 useManifestOnlyJar=true
-classPathUrl.1=/home/adeyemi/workspace/TimeSeriesAnalysis/target/classes
-reportsDirectory=/home/adeyemi/workspace/TimeSeriesAnalysis/target/surefire-reports
-classPathUrl.0=/home/adeyemi/workspace/TimeSeriesAnalysis/target/test-classes
+classPathUrl.1=/home/adeyemi/Documents/TimeSeriesAnalysis/target/classes
+reportsDirectory=/home/adeyemi/Documents/TimeSeriesAnalysis/target/surefire-reports
+classPathUrl.0=/home/adeyemi/Documents/TimeSeriesAnalysis/target/test-classes
 providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
-testSuiteDefinitionTestSourceDirectory=/home/adeyemi/workspace/TimeSeriesAnalysis/src/test/java
+testSuiteDefinitionTestSourceDirectory=/home/adeyemi/Documents/TimeSeriesAnalysis/src/test/java
 surefireClassPathUrl.1=/home/adeyemi/.m2/repository/org/apache/maven/surefire/surefire-api/2.10/surefire-api-2.10.jar
 surefireClassPathUrl.0=/home/adeyemi/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar
 runOrder=filesystem

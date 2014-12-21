@@ -14,12 +14,15 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.apache.log4j.BasicConfigurator;
 import org.jfree.data.time.TimeSeries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Text;
+
 /**
- * Hello world!
+ * Runs the Time Series Analysis Application
  *
  */
 public class App extends TimeSeries 
@@ -47,12 +50,19 @@ public class App extends TimeSeries
 	
 	protected static String FILE_BASE = "Out";
 	
-	protected static String DATA_DIR = "/home/adeyemi/workspace/TimeSeriesAnalysis_bckup/data/";
+	// default directory if running local
+	protected static String DATA_DIR = "/tmp/";
+	
+	protected static final String FILE_SEPARATOR = System.getProperty("file.separator");
+	
+	// no-args constructor
+	public App() {
+		this("TimeSeries");
+	}
 	
 	public App(String projectName) {
 		super(projectName);
 		App.NAME = projectName;
-		//App.serverConfiguration = new ServerConfiguration();
 		this.textMap =  Collections.synchronizedMap(new LinkedHashMap<String, Map<String, Float[]>>());
 		this.cleanedMap = Collections.synchronizedMap(new LinkedHashMap<String, Float[]>());
 	}
@@ -138,15 +148,15 @@ public class App extends TimeSeries
 					outWriter.write(System.getProperty("line.separator"));		
 
         } catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
+
 			System.out.println("Ensure you can use this encoding");
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			System.out.println("Ensure you have write access");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} finally {
 			outWriter.flush();
@@ -158,7 +168,6 @@ public class App extends TimeSeries
 		BufferedWriter outWriter = null;
         try {
 			outWriter = new BufferedWriter(new FileWriter(App.DATA_DIR + "map.txt", true));
-			//Float[] arr;
 			StringBuffer s;
 			if(sameRead) {
 					s = new StringBuffer();
@@ -179,15 +188,14 @@ public class App extends TimeSeries
 			}
 
         } catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Ensure you can use this encoding");
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			System.out.println("Ensure you have write access");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} finally {
 			outWriter.flush();
@@ -195,20 +203,11 @@ public class App extends TimeSeries
 		}
 	}
 	
-    public static void main( String[] args )
-    {
-    	String appName = "Default";
-    	if(args.length < 1) 
-    		System.out.println("Run: java -jar <program.jar> <TimeSeriesName>");
-    	else if (args.length == 2) 
-    		appName = args[1];
-    	App newApp = new App(appName);
-        System.out.println( App.DEFAULT_DOMAIN_DESCRIPTION );
-        
-/*
- *  Parsing the file for data
- */
-        File newFile = new File(App.DATA_DIR + App.FILENAME);
+	public static int runLocal(App newApp) {
+		/*
+		 *  Parsing the file for data
+		 */
+        File newFile = new File(App.DATA_DIR + App.FILE_SEPARATOR + App.FILENAME);
         InputStreamReader inputStream = null;
         try {
 			inputStream = new InputStreamReader(new FileInputStream(newFile));
@@ -217,23 +216,21 @@ public class App extends TimeSeries
 			log.error("Ensure you have the right file and directory for the data");
 			e.printStackTrace();
 		}
-/*
- *  Read the data file and store the value in a Map
- *  using the date:time String as Map key       
- */
+	/*
+	 *  Read the data file and store the value in a Map
+	 *  using the date:time String as Map key       
+	 */
         BufferedReader bufferedRead = new BufferedReader(inputStream);
         String data;
-        Map<String, Float[]> tmpMap;
         int entries = 0;
         Float[] arr = null;
         boolean sameKeyGrouping = false;
         boolean firstRunWithKey = true;
         String lastKey = null;
         try {
-        	//DirectoryStream<Path> ne = Files.newDirectoryStream("./data");
 			Files.deleteIfExists(FileSystems.getDefault().getPath("data", "Out*"));
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
         try {
@@ -243,12 +240,14 @@ public class App extends TimeSeries
 					continue;
 				if(newApp.isEmpty(meterReadings)) 
 					continue;
-/*
- *  Creating the key String, Map of the Float variables and 
- *  Compute daily averages for each data entry 
- *  meterReadings[0] contains the date
- *  meterReadings[1] contains the time every minute
- */				
+				
+	/*
+	 *  Creating the key String, Map of the Float variables and 
+	 *  Compute daily averages for each data entry 
+	 *  meterReadings[0] contains the date
+	 *  meterReadings[1] contains the time every minute
+	 */				
+				
 				sameKeyGrouping = false;
 				if(!newApp.cleanedMap.containsKey(meterReadings[0])) {
 					if(!firstRunWithKey) {
@@ -260,8 +259,6 @@ public class App extends TimeSeries
 					arr = new Float[7];
 					arr = newApp.initArray(arr);
 					arr = newApp.sumLists(arr, meterReadings);
-					//tmpMap = newApp.textMap.get(meterReadings[0]);
-					//newApp.writeToFile(meterReadings, same);
 					lastKey = meterReadings[0];
 					newApp.cleanedMap.put(lastKey, arr);
 					firstRunWithKey = false;
@@ -275,32 +272,52 @@ public class App extends TimeSeries
 			}
 		} catch (IOException e) {
 			log.error("Unable to read from file: ", App.DATA_DIR + App.FILENAME);
-			e.printStackTrace();
-		}
-        
-        try {
-        	inputStream.close();
-			bufferedRead.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-/*
- *  Checking to see if Map has been created      
- */
-        System.out.println("*****************************************");
-        //System.out.println("The last term's key is : " + (String) newApp.textMap.);
-        System.out.println(newApp.textMap.size());
-        System.out.println("The size of Free Memory is : " + newApp.getMB(Runtime.getRuntime().freeMemory()));
-        //System.out.println("The size of Max Memory is : " + newApp.getMB(Runtime.getRuntime()));
-        System.out.println("*****************************************");
-        
-        System.out.println(newApp.cleanedMap.size());
-        
-        
-        String mont = ServerConfiguration.getConfiguration("autumn");
-        System.out.println("The autumn months is : " + mont);
-    }
-
-
+				e.printStackTrace();
+				return 1;
+			}
+	        
+	        try {
+	        	inputStream.close();
+				bufferedRead.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return 1;
+			}
+	        return 0;
+}
+	
+	
+			    public static void main( String[] args )
+			    {
+			    	BasicConfigurator.configure();
+			    	String appName = "Default";
+			    	App newApp = null;
+			    	if(args.length == 1) {
+			    		System.out.println("Run: java -jar <program.jar> <TimeSeriesName>");
+			    		App.DATA_DIR = args[0];
+			    		System.out.println("OUT: Working directory is : " + App.DATA_DIR);
+			    		log.info("INFO: Working directory is : " + App.DATA_DIR);
+			    		newApp = new App();
+			    		int exitCode = runLocal(newApp);
+			    	}
+			    	else if (args.length == 2) {
+			    		appName = args[1];
+			    		newApp = new App(appName);
+			    		System.out.println( App.DEFAULT_DOMAIN_DESCRIPTION );
+			    	}
+		    		newApp = new App();
+		    		int exitCode = runLocal(newApp);
+			
+			/*
+			 *  Checking to see if Map has been created      
+			 */
+			        System.out.println("*****************************************");
+			        System.out.println("The size of Free Memory is : " + newApp.getMB(Runtime.getRuntime().freeMemory()));
+			        System.out.println("*****************************************");    
+			        System.out.println(newApp.cleanedMap.size());
+			        
+			        
+			        String mont = ServerConfiguration.getConfiguration("autumn");
+			        System.out.println("The autumn months is : " + mont);
+			    }
 }
