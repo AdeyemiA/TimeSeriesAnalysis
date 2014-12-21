@@ -11,9 +11,13 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.BasicConfigurator;
 import org.jfree.data.time.TimeSeries;
@@ -305,8 +309,6 @@ public class App extends TimeSeries
 			    		newApp = new App(appName);
 			    		System.out.println( App.DEFAULT_DOMAIN_DESCRIPTION );
 			    	}
-		    		//newApp = new App();
-		    		//int exitCode = runLocal(newApp);
 			
 			/*
 			 *  Checking to see if Map has been created      
@@ -319,5 +321,53 @@ public class App extends TimeSeries
 			        
 			        String mont = ServerConfiguration.getConfiguration("autumn");
 			        System.out.println("The autumn months is : " + mont);
-			    }
+			        
+			        /*
+			         *  Extract values from the output file and aggregate into 
+			         *  A Map of a map. With the inner map the list of values
+			         *  and the outer map the map of months and days 
+			         */
+			        
+			        File preprocessedFile = new File(App.DATA_DIR + App.FILE_BASE + App.FILE_INDEX + ".csv");
+			        BufferedReader preprocessedFileRead = null;
+			        try {
+			        	preprocessedFileRead = new BufferedReader(new InputStreamReader(new FileInputStream(preprocessedFile)));
+					} catch (FileNotFoundException e) {
+						log.error("Unable to open file " + preprocessedFile.getAbsolutePath() + ". ");
+						log.error("Check if the file exists");
+						e.printStackTrace();
+					}
+			        
+			        // read file to extract tokens
+			        String daily = null;
+			        Map<Integer, Map<String, List>> dateValues = new ConcurrentHashMap<Integer, Map<String, List>>();
+			        Map<String, List> monthMap = null;
+			        try {
+						while((daily = preprocessedFileRead.readLine()) != null) {
+							String[] chunks = daily.split(",");
+							String[] date = chunks[0].split("/");
+		
+							// check if the year key has been stored
+							monthMap = (dateValues.containsKey(date[2])) ? dateValues.get(date[2]) : new ConcurrentHashMap<String, List>();
+							List<Float> values = new ArrayList<Float>();
+							for(int index = 1; index < chunks.length; ++index) {
+								values.add(Float.parseFloat(chunks[index]));					
+							}
+							// month/day
+							monthMap.put(date[1] + "/" + date[0], values);
+							dateValues.put(Integer.parseInt(date[2]), monthMap);
+							log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
+						}
+					} catch (IOException e) {
+						log.error("Unable to read the file " + preprocessedFile.getAbsolutePath());
+						e.printStackTrace();
+					}
+			        try {
+						preprocessedFileRead.close();
+					} catch (IOException e) {
+
+						e.printStackTrace();
+					}
+			        
+			    } //end of main
 }
