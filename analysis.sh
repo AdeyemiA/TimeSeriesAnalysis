@@ -54,7 +54,8 @@ START_PATH=`pwd`
 # cleaning the temp directory
 file1=household_data.zip
 file2=household_power_consumption.txt
-cd /tmp/ && rm -f $file1 && rm -fr $file2
+file3=Out*
+cd /tmp/ && rm -f $file1 && rm -fr $file2 && rm -fr $file3
 
 # curl the data from the website
 echo "Downloading the data file ... "
@@ -93,6 +94,6 @@ else
 	tmp_dir="/tmp/"
 	export CLASSPATH="$CLASSPATH:$START_PATH/lib:$START_PATH/resources:$START_PATH/target"
 	echo "$CLASSPATH"
-	$JAVA_HOME/bin/java -Dlog4j.configurationFile=./log/log4j2.xml -jar target/TimeSeriesAnalysis* "$tmp_dir"
+	$JAVA_HOME/bin/java -jar target/TimeSeriesAnalysis* "$tmp_dir"
 fi
 

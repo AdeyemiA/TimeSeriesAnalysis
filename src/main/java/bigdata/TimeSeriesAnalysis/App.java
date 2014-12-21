@@ -289,14 +289,14 @@ public class App extends TimeSeries
 	
 			    public static void main( String[] args )
 			    {
-			    	BasicConfigurator.configure();
+			    	//BasicConfigurator.configure();
 			    	String appName = "Default";
 			    	App newApp = null;
 			    	if(args.length == 1) {
 			    		System.out.println("Run: java -jar <program.jar> <TimeSeriesName>");
 			    		App.DATA_DIR = args[0];
 			    		System.out.println("OUT: Working directory is : " + App.DATA_DIR);
-			    		log.info("INFO: Working directory is : " + App.DATA_DIR);
+			    		log.info("Working directory is : " + App.DATA_DIR);
 			    		newApp = new App();
 			    		int exitCode = runLocal(newApp);
 			    	}
@@ -305,8 +305,8 @@ public class App extends TimeSeries
 			    		newApp = new App(appName);
 			    		System.out.println( App.DEFAULT_DOMAIN_DESCRIPTION );
 			    	}
-		    		newApp = new App();
-		    		int exitCode = runLocal(newApp);
+		    		//newApp = new App();
+		    		//int exitCode = runLocal(newApp);
 			
 			/*
 			 *  Checking to see if Map has been created      
