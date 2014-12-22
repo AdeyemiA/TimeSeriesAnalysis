@@ -5,9 +5,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -17,6 +19,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.BasicConfigurator;
@@ -132,6 +135,12 @@ public class App extends TimeSeries
 		return arr;
 	}
 	
+	/**
+	 * 
+	 * @param key - Takes a string key and associates to the array arr
+	 * @param arr - Array that is written to file with an association with the String key
+	 * @throws IOException
+	 */
 	public <T> void writeToFile(String key, Float[] arr) throws IOException {
 		BufferedWriter outWriter = null;
         try {
@@ -168,6 +177,12 @@ public class App extends TimeSeries
 		}
 	}
 	
+	/**
+	 * 
+	 * @param readings - Takes a generic array and writes the value to a File
+	 * @param sameRead - checks if the read operation is within a given key or start of a new key
+	 * @throws IOException
+	 */
 	public <T> void writeToFile(T[] readings, boolean sameRead) throws IOException {
 		BufferedWriter outWriter = null;
         try {
@@ -207,6 +222,45 @@ public class App extends TimeSeries
 		}
 	}
 	
+	/**
+	 * 
+	 * @param entry - Map to be written to file
+	 */
+	public void writeMapToFile(Map<Integer, Map<String, List>> entry) {
+		BufferedWriter bufferedWrite = null;
+		try {
+			bufferedWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv"), false)));
+			Set<Integer> outerKeySet = entry.keySet();
+			Set<String> innerKeySet;
+			for(Integer key : outerKeySet) {
+				innerKeySet = entry.get(key).keySet();
+				for(String innerKey : innerKeySet) {
+					bufferedWrite.write(key + " ---> " + innerKey + "  :  " + entry.get(key).get(innerKey).toString());
+				}
+			}
+			
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		
+		try {
+			bufferedWrite.flush();
+			bufferedWrite.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 
+	 * @param newApp - An instance of the App class to run the application locally
+	 * @return - Exit code, 0 for all going well, and 1 for an error occuring
+	 */
 	public static int runLocal(App newApp) {
 		/*
 		 *  Parsing the file for data
@@ -370,7 +424,7 @@ public class App extends TimeSeries
 					}
 			        
 			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
-			        
+			        newApp.writeMapToFile(aggregatedSeasonalLists);
 			        
 			    } //end of main
 }
