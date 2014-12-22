@@ -369,5 +369,8 @@ public class App extends TimeSeries
 						e.printStackTrace();
 					}
 			        
+			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
+			        
+			        
 			    } //end of main
 }

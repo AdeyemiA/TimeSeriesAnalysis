@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author adeyemi
+ * This class will compute the seasonal averaging of the energy consumption data
+ * It depends on the configuration of the date ranges in the config.properties file
  *
  */
 public class SeasonalCalculator {
@@ -25,12 +27,27 @@ public class SeasonalCalculator {
 	private static final String summer = ServerConfiguration.getConfiguration("summer");
 	private static final String winter = ServerConfiguration.getConfiguration("winter");
 	private static final int[] MONTHS_30 = new int[]{4, 6, 9, 11};
+	private static final Object m_Object = new Object();
+	private static SeasonalCalculator seasonalCalculator = null;
 	
 	public SeasonalCalculator() {
 		//autumn = ServerConfiguration.getConfiguration("autumn");
 		//spring = ServerConfiguration.getConfiguration("spring");
 		//summer = ServerConfiguration.getConfiguration("summer");
 		//winter = ServerConfiguration.getConfiguration("winter");
+	}
+	
+	/**
+	 * 
+	 * @return - an instance of the SeasonalCalculator
+	 */
+	public static SeasonalCalculator getInstance() {
+		synchronized(m_Object) {
+			if(seasonalCalculator == null) {
+				seasonalCalculator = new SeasonalCalculator();
+			}
+		}
+		return seasonalCalculator;
 	}
 	
 	/**
@@ -58,22 +75,35 @@ public class SeasonalCalculator {
 		return Integer.parseInt(mnDay[0]) * 100 + Integer.parseInt(mnDay[1]);		
 	}
 	
-	public Map<String, List> aggregateSeasons(Map<Integer, Map<String, List>> yearMap) {
+	/**
+	 * 
+	 * @param yearMap - The mapping of the yearly energy consumption, with the values a map of the daily entries
+	 * @return - A yearly energy consumption map, with the values being a map of the seasonal (autumn, winter..) entries
+	 */
+	public static Map<Integer, Map<String, List>> aggregateSeasons(Map<Integer, Map<String, List>> yearMap) {
+		// get an instance of the calculator
+		SeasonalCalculator seasonalCalculator = getInstance();
+		
 		// initialize the variables. Each key for seasonal would be the autumn,spring,.. values read from file
+		Map<Integer, Map<String, List>> annualSeasonalMap = new ConcurrentHashMap<Integer, Map<String, List>>();
 		Map<String, List> seasonalMap = new ConcurrentHashMap<String, List>();
 		Set<Integer> yearsSet = yearMap.keySet();
 		Integer[] yearsArray = (Integer[]) yearsSet.toArray();
-		Arrays.sort(yearsArray, 0, yearsArray.length - 1);		
-		// extract the months and days corresponding to a season
+		Arrays.sort(yearsArray, 0, yearsArray.length - 1);
+		
+		// extract the months and days corresponding to a season as a string array
 		String[] s_autumn = autumn.split("-");
 		String[] s_spring = spring.split("-");
 		String[] s_summer = summer.split("-");
 		String[] s_winter = winter.split("-");
 		
-		int[] l_autumn = getIntFromStringDate(s_autumn);
-		int[] l_spring = getIntFromStringDate(s_spring);
-		int[] l_summer = getIntFromStringDate(s_summer);
-		int[] l_winter = getIntFromStringDate(s_winter);
+		// convert the elements of the string array into int values for comparison
+		int[] l_autumn = seasonalCalculator.getIntFromStringDate(s_autumn);
+		int[] l_spring = seasonalCalculator.getIntFromStringDate(s_spring);
+		int[] l_summer = seasonalCalculator.getIntFromStringDate(s_summer);
+		int[] l_winter = seasonalCalculator.getIntFromStringDate(s_winter);
+		
+		//initialize variables
 		String season;
 		int year;
 		int seasonEntries = 0;
@@ -81,7 +111,7 @@ public class SeasonalCalculator {
 		List<Float> cumulative = new ArrayList<Float>();
 		
 		// get each year value for each year key
-		for(int index = 0; index < yearsArray.length -1; ++index) {
+		for(int index = 0; index < yearsArray.length - 1; ++index) {
 			season = null;
 			year = yearsArray[index];
 			monthlyMap = yearMap.get((Integer) year);
@@ -92,23 +122,27 @@ public class SeasonalCalculator {
 			
 			// get each daily value for each date key
 			for(int idx = 0; idx < monthArray.length - 1; ++idx) {
-				monthDay = getIntFromStringDate(monthArray[idx]);
+				monthDay = seasonalCalculator.getIntFromStringDate(monthArray[idx]);
 				if((monthDay >= l_autumn[0]) && (monthDay <= l_autumn[1])) {
+					
 					// date is in the autumn season
 					if(season != null && season.equals(autumn)) {
+						
 						// get the list for this key and add to accumulated value
 						// increase the entries count
-						cumulative = sumListOfFloats(cumulative, monthlyMap.get(monthArray[idx]));
+						cumulative = seasonalCalculator.sumListOfFloats(cumulative, monthlyMap.get(monthArray[idx]));
 						++seasonEntries;
 					}else if(season != null) {
+						
 						// last entry was a different season, average and initialize
-						List<Float> avgList = averageListOfFloats(cumulative, seasonEntries);
+						List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
 						seasonalMap.put(season, avgList);
 						log.info("Averaging for season " + season + " and year " + year + ". ");
 						season = autumn;
 						cumulative = monthlyMap.get(monthArray[idx]);
 						seasonEntries = 1;
 					}else if(season == null) {
+						
 						// we are jut starting out with the iteration
 						season = autumn;
 						cumulative = monthlyMap.get(monthArray[idx]);
@@ -116,13 +150,80 @@ public class SeasonalCalculator {
 					}
 					
 				}else if((monthDay >= l_spring[0]) && (monthDay <= l_spring[1])) {
+					
 					// date is in the spring season
-					
+					if(season != null && season.equals(spring)) {
+						
+						// get the list for this key and add to accumulated value
+						// increase the entries count
+						cumulative = seasonalCalculator.sumListOfFloats(cumulative, monthlyMap.get(monthArray[idx]));
+						++seasonEntries;
+					}else if(season != null) {
+						
+						// last entry was a different season, average and initialize
+						List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
+						seasonalMap.put(season, avgList);
+						log.info("Averaging for season " + season + " and year " + year + ". ");
+						season = spring;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}else if(season == null) {
+						
+						// we are jut starting out with the iteration
+						season = spring;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}
 				}else if((monthDay >= l_summer[0]) && (monthDay <= l_summer[1])) {
-					// date is in the summer season
 					
+					// date is in the summer season
+					if(season != null && season.equals(summer)) {
+						
+						// get the list for this key and add to accumulated value
+						// increase the entries count
+						cumulative = seasonalCalculator.sumListOfFloats(cumulative, monthlyMap.get(monthArray[idx]));
+						++seasonEntries;
+					}else if(season != null) {
+						
+						// last entry was a different season, average and initialize
+						List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
+						seasonalMap.put(season, avgList);
+						log.info("Averaging for season " + season + " and year " + year + ". ");
+						season = summer;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}else if(season == null) {
+						
+						// we are jut starting out with the iteration
+						season = summer;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}
 				}else if((monthDay >= l_winter[0]) && (monthDay <= l_winter[1])){
+					
 					// date is in the winter season
+					if(season != null && season.equals(winter)) {
+						
+						// get the list for this key and add to accumulated value
+						// increase the entries count
+						cumulative = seasonalCalculator.sumListOfFloats(cumulative, monthlyMap.get(monthArray[idx]));
+						++seasonEntries;
+					}else if(season != null) {
+						
+						// last entry was a different season, average and initialize
+						List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
+						seasonalMap.put(season, avgList);
+						log.info("Averaging for season " + season + " and year " + year + ". ");
+						season = winter;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}else if(season == null) {
+						
+						// we are jut starting out with the iteration
+						season = winter;
+						cumulative = monthlyMap.get(monthArray[idx]);
+						seasonEntries = 1;
+					}
 					
 				}else {
 					log.error("The configuration properties for the seasons are invalid");
@@ -130,8 +231,9 @@ public class SeasonalCalculator {
 				}
 				
 			}
+			annualSeasonalMap.put(year, seasonalMap);
 		}
-		return seasonalMap;
+		return annualSeasonalMap;
 	}
 	
 	/**
@@ -160,7 +262,7 @@ public class SeasonalCalculator {
 		return cumulative;
 	}
 	
-	public List<Float> computeRegularSeason(Map<String, List> seasons) {
+/*	public List<Float> computeRegularSeason(Map<String, List> seasons) {
 		return array_of_list;
-	}
+	}*/
 }
