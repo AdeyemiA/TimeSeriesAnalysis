@@ -133,7 +133,7 @@ public class SeasonalCalculator {
 							List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
 							seasonalMap.put(season, avgList);
 							//System.out.println("Averaging for season " + season + " and year " + yearsArray[index] + ". ");
-							//System.out.println("Average is " + avgList.toString());
+							//System.out.println("Average is " + avgList.toString() + " and num of iter is " + seasonEntries);
 							cumulative = null;
 							season = null;
 							seasonEntries = 0;
@@ -148,6 +148,7 @@ public class SeasonalCalculator {
 						season = autumn;
 						cumulative = monthlyMap.get(monthArray[idx]);
 						seasonEntries = 1;
+						avgList = null;
 					}else if(season == null) {
 						
 						// we are jut starting out with the iteration

@@ -427,22 +427,45 @@ public class App extends TimeSeries
 			        Map<Integer, List> monthMap = null;
 
 
-					Set<String> dateSet = cleanedMap.keySet();
-					for(String dateKey : dateSet) {
-						Float[] values = cleanedMap.get(dateKey);
-						String[] date = dateKey.split("/");
-	
-						// check if the year key has been stored
-						monthMap = (dateValues.containsKey(Integer.parseInt(date[2]))) ? dateValues.get(Integer.parseInt(date[2])) : new ConcurrentHashMap<Integer, List>();
-						// month/day
-						monthMap.put(SeasonalCalculator.getIntFromStringDate(date[1] + "/" + date[0]), Arrays.asList(values));
-						dateValues.put(Integer.parseInt(date[2]), monthMap);
-					//log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
+			        File preprocessedFile = new File(App.DATA_DIR + App.FILE_BASE + App.FILE_INDEX + ".csv");
+			        BufferedReader preprocessedFileRead = null;
+			        try {
+			        	preprocessedFileRead = new BufferedReader(new InputStreamReader(new FileInputStream(preprocessedFile)));
+					} catch (FileNotFoundException e) {
+						log.error("Unable to open file " + preprocessedFile.getAbsolutePath() + ". ");
+						log.error("Check if the file exists");
+						e.printStackTrace();
+					}
+			        
+			        try {
+						while((daily = preprocessedFileRead.readLine()) != null) {
+							String[] chunks = daily.split(",");
+							String[] date = chunks[0].split("/");
+		
+							// check if the year key has been stored
+							monthMap = (dateValues.containsKey(Integer.parseInt(date[2]))) ? dateValues.get(Integer.parseInt(date[2])) : new ConcurrentHashMap<Integer, List>();
+							List<Float> values = new ArrayList<Float>();
+							for(int index = 1; index < chunks.length; ++index) {
+								values.add(Float.parseFloat(chunks[index]));					
+							}
+							// month/day
+							monthMap.put(SeasonalCalculator.getIntFromStringDate(date[1] + "/" + date[0]), values);
+							dateValues.put(Integer.parseInt(date[2]), monthMap);
+							log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
+						}
+					} catch (IOException e) {
+						log.error("Unable to read the file " + preprocessedFile.getAbsolutePath());
+						e.printStackTrace();
+					}
+			        try {
+						preprocessedFileRead.close();
+					} catch (IOException e) {
+
+						e.printStackTrace();
 					}
 
 			        
 			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
-			        //newApp.writeMapToFile(dateValues);
 			        newApp.writeMapToFile(aggregatedSeasonalLists);	        
 			    } //end of main
 }

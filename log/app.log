@@ -1,3 +1,105 @@
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/3:[0.77782965, 0.21868485, 241.3362, 3.4212472, 0.0, 0.6722222, 4.271528]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/4:[1.0681175, 0.19454545, 240.33453, 4.5618105, 0.5972222, 0.55833334, 4.58125]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/5:[0.7736046, 0.16239332, 241.18268, 3.3313918, 0.58402777, 0.58125, 4.8006945]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/6:[0.6985658, 0.13353586, 240.5298, 3.0056965, 0.0, 0.53541666, 5.86875]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/7:[0.57971394, 0.14551102, 240.65753, 2.5466692, 0.61041665, 0.5277778, 4.001389]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/8:[0.8421196, 0.17145443, 240.30392, 3.6294436, 0.5951389, 0.9375, 5.8743057]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/9:[0.7524155, 0.21810688, 240.7926, 3.3232036, 0.0, 0.4340278, 3.7194445]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/10:[0.80173814, 0.19533458, 240.06267, 3.5102797, 0.6298611, 0.8611111, 6.195139]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/11:[0.82886964, 0.21015547, 239.774, 3.648056, 0.5888889, 0.4125, 5.4034724]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/12:[0.7705367, 0.19855006, 240.2186, 3.3972232, 1.1972222, 0.4486111, 4.475]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/13:[0.9598013, 0.19980678, 240.49481, 4.2404156, 1.5784723, 1.9625, 5.4819446]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/14:[0.97880054, 0.17255592, 240.3419, 4.260557, 0.73888886, 0.41527778, 5.2604165]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/15:[1.1349293, 0.13365115, 240.37003, 4.787489, 0.74426687, 1.514246, 5.7004867]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/16:[0.5694832, 0.13661698, 241.15416, 2.4870818, 0.0, 0.39444444, 2.676389]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/17:[0.5599668, 0.12593755, 241.18442, 2.4241776, 0.0, 0.37569445, 4.2319446]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/18:[0.5639153, 0.118006915, 241.45006, 2.417631, 0.0, 0.34583333, 2.7381945]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/19:[0.55635977, 0.13367926, 241.84937, 2.3949943, 0.0, 0.38125, 4.2395835]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/20:[0.59432226, 0.15170842, 241.6488, 2.568475, 0.00625, 0.38194445, 3.5958333]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/21:[0.73900497, 0.16961505, 241.72087, 3.2048595, 1.4097222, 0.40625, 4.290278]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/22:[0.8086415, 0.21616986, 241.18988, 3.5011356, 0.0, 1.49375, 3.8916667]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/23:[0.81677586, 0.1981109, 239.88292, 3.5233395, 0.62291664, 1.4625, 5.7604165]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/24:[0.6400476, 0.19850992, 240.29709, 2.7861164, 0.0, 1.4555556, 2.7027779]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/25:[0.78500664, 0.17928195, 240.27951, 3.3686168, 0.0, 2.5916667, 5.242361]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/26:[0.6139929, 0.12351388, 240.93756, 2.6583376, 0.0, 1.5597222, 2.879861]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/27:[0.6613609, 0.12134033, 239.62993, 2.8269508, 0.6298611, 0.36319444, 2.8069444]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/28:[0.59906584, 0.12699018, 240.30634, 2.5834868, 0.55625, 0.37777779, 5.022222]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/29:[0.38132265, 0.123101205, 240.38435, 1.689718, 0.0, 0.37291667, 2.8875]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/30:[0.3828192, 0.120037355, 240.04898, 1.6951395, 0.0, 0.37083334, 2.8381944]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/7/31:[0.3851498, 0.1262011, 239.68082, 1.7159704, 0.0, 0.38055557, 2.9666667]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/1:[0.38587782, 0.1281178, 239.80125, 1.7205557, 0.0, 0.3875, 2.9604166]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/2:[0.38158444, 0.1272525, 240.89742, 1.700833, 0.0, 0.37222221, 2.9104166]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/3:[0.42723036, 0.122996956, 241.50175, 1.85306, 0.0, 0.36597222, 2.8444445]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/4:[0.3773311, 0.12460548, 241.39796, 1.6722195, 0.0, 0.36944443, 2.8583333]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/5:[0.37046957, 0.120611064, 241.85947, 1.6345785, 0.0, 0.35902777, 2.7868056]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/6:[0.3644075, 0.1142942, 240.95345, 1.6036056, 0.0, 0.35208333, 2.7409723]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/7:[0.36630347, 0.11668471, 241.32489, 1.6180515, 0.0, 0.3611111, 2.7555556]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/8:[0.36698616, 0.11673032, 240.73459, 1.6234668, 0.0, 0.36527777, 2.7486112]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/9:[0.37157282, 0.11909131, 241.06932, 1.638468, 0.0, 0.3576389, 2.8069444]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/10:[0.37830412, 0.12625545, 241.95453, 1.6648551, 0.0, 0.36458334, 2.8756945]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/11:[0.3763905, 0.122266546, 240.5431, 1.6716619, 0.0, 0.37638888, 2.8597221]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/12:[0.36784646, 0.1174291, 240.79497, 1.6237457, 0.0, 0.35694444, 2.7652779]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/13:[0.37103796, 0.11495679, 240.99141, 1.6345792, 0.0, 0.35277778, 2.8451388]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/14:[0.38491017, 0.11146533, 241.16617, 1.6834676, 0.0, 0.35555556, 3.104861]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/15:[0.7333241, 0.14359039, 241.68668, 3.161386, 0.0, 3.0284722, 3.6680555]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/16:[0.7845347, 0.12848343, 241.07683, 3.4174988, 1.0625, 0.32152778, 5.088889]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/17:[0.77512085, 0.10963224, 240.99228, 3.2927086, 0.74484944, 0.5871632, 4.348653]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/22:[0.614066, 0.1621579, 242.66458, 2.7065792, 0.0, 0.35526314, 1.9736842]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/23:[0.5317069, 0.14360814, 242.0452, 2.32792, 0.0, 0.3923611, 4.240278]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/24:[0.50204664, 0.12184585, 241.6083, 2.2548544, 0.0, 0.37569445, 3.9666667]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/25:[0.6808393, 0.11189711, 241.11642, 2.9448662, 0.67291665, 0.3625, 6.2215276]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/26:[0.5258694, 0.12367623, 241.81374, 2.3005564, 0.0, 0.37361112, 3.526389]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/27:[1.4101733, 0.21133198, 240.85968, 5.9940343, 0.6458333, 5.265972, 8.824306]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/28:[1.0019832, 0.16493334, 242.56569, 4.281813, 1.4486111, 0.38125, 9.015972]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/29:[1.1586654, 0.13312078, 241.00786, 4.937777, 2.0868056, 0.37083334, 9.09375]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/30:[1.0380576, 0.12545551, 241.37448, 4.3824987, 0.6527778, 1.0208334, 8.1875]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/8/31:[0.9479899, 0.116986066, 241.19218, 4.1034703, 1.4576389, 1.1965277, 5.526389]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/1:[1.1064708, 0.12512499, 241.26285, 4.6916614, 1.3520833, 0.82916665, 9.715278]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/2:[0.96700835, 0.1182724, 240.94371, 4.0887566, 0.64513886, 0.3472222, 8.184028]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/3:[0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/4:[1.211001, 0.15140565, 241.10222, 5.1734657, 1.8090278, 0.50972223, 9.195139]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/5:[0.91876245, 0.12986827, 242.14087, 3.9637444, 1.1173611, 1.8972223, 5.1881943]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/6:[0.98810804, 0.111947365, 241.84204, 4.2069473, 2.1972222, 0.36944443, 7.0652776]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/7:[1.0082318, 0.11664022, 241.27534, 4.3070817, 1.3395833, 0.6402778, 8.214583]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/8:[0.905424, 0.11887614, 240.98407, 3.8720815, 6.9444446E-4, 0.34375, 5.1930556]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/9:[0.8602184, 0.11663477, 240.6033, 3.7016652, 1.2590277, 1.4777777, 4.8722224]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/10:[0.9222968, 0.13892506, 241.81815, 3.921525, 0.67083335, 0.45416668, 7.48125]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/11:[1.0161892, 0.16363187, 241.671, 4.311946, 0.6458333, 0.9909722, 6.2472224]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/12:[1.1195083, 0.13983186, 241.61949, 4.7557025, 1.2534722, 1.4444444, 6.1743054]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/13:[0.74744433, 0.13180411, 241.15547, 3.2411144, 0.90347224, 0.5541667, 4.6597223]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/14:[0.99352646, 0.13680845, 240.9413, 4.237352, 1.3013889, 1.8784722, 7.1319447]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/15:[0.6847871, 0.15247045, 241.29688, 2.9531975, 0.0, 0.6236111, 4.179167]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/16:[0.93037415, 0.11899315, 240.41179, 3.9340298, 0.72083336, 0.51319444, 7.1597223]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/17:[1.0400062, 0.1365569, 240.81488, 4.4277773, 1.3569444, 3.8166666, 6.754861]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/18:[0.8666291, 0.11248448, 241.559, 3.6623492, 0.68194443, 0.5236111, 8.179861]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/19:[0.6386114, 0.10236526, 241.71136, 2.711531, 0.0, 0.9076389, 3.5805554]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/20:[1.1686331, 0.13556527, 241.49353, 4.985966, 2.307639, 0.53194445, 9.2097225]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/21:[0.77178895, 0.12480153, 240.91875, 3.3115237, 0.0, 0.47152779, 5.5340276]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/22:[1.0488852, 0.13078465, 240.65518, 4.4680524, 1.7166667, 0.81041664, 8.172222]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/23:[1.006849, 0.114540495, 240.72478, 4.2277813, 0.70902777, 0.5243056, 8.3347225]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/24:[0.9222168, 0.12864992, 240.58855, 3.9236138, 1.2076389, 0.53680557, 6.0180554]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/25:[0.44917747, 0.12086432, 240.77518, 1.9423736, 0.0, 0.63559324, 3.79661]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/28:[1.6391147, 0.09003485, 240.24567, 6.8522673, 3.2891986, 0.630662, 3.142857]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/29:[1.1697398, 0.09681244, 241.22333, 4.879165, 1.0965278, 0.45, 9.060416]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/9/30:[0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/1:[1.0450145, 0.10957204, 240.80176, 4.372641, 1.2166667, 0.50277776, 7.852083]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/2:[1.3355926, 0.11533752, 240.70332, 5.58431, 2.7583334, 0.51458335, 9.3972225]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/3:[1.2713078, 0.14084315, 241.93298, 5.3984675, 3.4722223, 1.7805556, 5.373611]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/4:[1.2333058, 0.13026658, 240.62111, 5.197922, 1.1868056, 0.5013889, 5.7305555]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/5:[1.2879341, 0.14766814, 239.91911, 5.422085, 0.0, 2.0916667, 8.359028]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/6:[0.91351175, 0.097616844, 241.27632, 3.8155572, 0.70555556, 0.36597222, 5.59375]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/7:[1.2569125, 0.12506667, 241.60541, 5.287644, 1.4993056, 0.37708333, 8.795834]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/8:[1.0489275, 0.13931671, 240.98221, 4.433476, 0.66944444, 0.49305555, 6.89375]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/9:[1.1192911, 0.17640258, 240.19841, 4.740959, 0.66597223, 1.1006944, 9.119445]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/10:[1.3881279, 0.2273932, 240.34206, 5.918197, 2.3090277, 0.53680557, 7.1506944]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/11:[1.1267989, 0.1864793, 239.92639, 4.8204083, 0.69930553, 3.476389, 6.0652776]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/12:[1.0970091, 0.11824152, 240.26079, 4.681384, 0.76666665, 0.5416667, 6.813889]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/13:[1.4401989, 0.11989174, 240.7991, 6.01584, 1.3805555, 0.42430556, 11.522917]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/14:[1.4827235, 0.14996102, 240.90334, 6.2611055, 1.79375, 1.6951389, 9.888194]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/15:[1.1085583, 0.13995847, 240.79488, 4.688337, 0.49444443, 0.57430553, 7.490278]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/16:[0.6944543, 0.116623774, 241.91756, 2.936094, 0.0, 0.44791666, 5.3166666]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/17:[0.7273487, 0.1288153, 242.27591, 3.064031, 0.6909722, 0.4625, 3.2506945]
+INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/18:[1.884641, 0.1813775, 241.81631, 7.903328, 1.5513889, 7.0958333, 11.376389]
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/19:[1.3374848, 0.15247901, 241.9131, 5.6530633, 0.7118056, 2.8541667, 6.570139]
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/20:[1.1999751, 0.112891674, 242.24826, 5.033612, 1.4958333, 0.47916666, 7.173611]
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/10/21:[0.94110954, 0.12599576, 243.47229, 3.946799, 0.5243056, 0.4798611, 4.692361]
@@ -36,303 +138,3 @@ INFO main bigdata.TimeSeriesAnalysis.App - 2010/11/22:[1.4177347, 0.09885679, 24
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/11/23:[1.0955107, 0.09545142, 240.5757, 4.67444, 1.2993056, 0.31805557, 5.2854166]
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/11/24:[1.247395, 0.09198601, 240.03098, 5.249578, 0.76111114, 1.9777777, 8.488889]
 INFO main bigdata.TimeSeriesAnalysis.App - 2010/11/25:[0.993864, 0.080644436, 241.53627, 4.169446, 0.74722224, 0.29583332, 3.5222223]
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - 2010 ---> 11/25  :  [0.993864, 0.080644436, 241.53627, 4.169446, 0.74722224, 0.29583332, 3.5222223]
-INFO main bigdata.TimeSeriesAnalysis.App - 2009 ---> 12/31  :  [1.5360355, 0.12959173, 240.9592, 6.4016623, 0.0, 0.26875, 13.478472]
-INFO main bigdata.TimeSeriesAnalysis.App - 2008 ---> 12/31  :  [1.3640194, 0.08977229, 243.29645, 5.6876307, 2.0659723, 0.17083333, 8.236111]
-INFO main bigdata.TimeSeriesAnalysis.App - 2006 ---> 12/31  :  [2.4265246, 0.10475842, 239.89668, 10.199613, 0.0, 0.24097222, 4.515278]
-INFO main bigdata.TimeSeriesAnalysis.App - 2007 ---> 12/31  :  [1.5392642, 0.10106657, 241.09464, 6.4549837, 0.0, 2.4006944, 9.771528]
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - 2010 ---> 06/21-09/20  :  [0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
-INFO main bigdata.TimeSeriesAnalysis.App - 2010 ---> 09/21-12/31  :  [0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
-INFO main bigdata.TimeSeriesAnalysis.App - 2010 ---> 01/01-03/20  :  [0.9607641, 0.11056611, 243.39404, 4.008657, 0.7138889, 1.6113425, 5.0184026]
-INFO main bigdata.TimeSeriesAnalysis.App - 2010 ---> 03/21-06/20  :  [1.0515958, 0.15455987, 241.23267, 4.5330095, 3.0490744, 0.90300924, 7.23044]
-INFO main bigdata.TimeSeriesAnalysis.App - 2009 ---> 06/21-09/20  :  [0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
-INFO main bigdata.TimeSeriesAnalysis.App - 2009 ---> 09/21-12/31  :  [0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
-INFO main bigdata.TimeSeriesAnalysis.App - 2009 ---> 01/01-03/20  :  [0.9607641, 0.11056611, 243.39404, 4.008657, 0.7138889, 1.6113425, 5.0184026]
-INFO main bigdata.TimeSeriesAnalysis.App - 2009 ---> 03/21-06/20  :  [1.0515958, 0.15455987, 241.23267, 4.5330095, 3.0490744, 0.90300924, 7.23044]
-INFO main bigdata.TimeSeriesAnalysis.App - 2008 ---> 06/21-09/20  :  [0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
-INFO main bigdata.TimeSeriesAnalysis.App - 2008 ---> 09/21-12/31  :  [0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
-INFO main bigdata.TimeSeriesAnalysis.App - 2008 ---> 01/01-03/20  :  [0.9607641, 0.11056611, 243.39404, 4.008657, 0.7138889, 1.6113425, 5.0184026]
-INFO main bigdata.TimeSeriesAnalysis.App - 2008 ---> 03/21-06/20  :  [1.0515958, 0.15455987, 241.23267, 4.5330095, 3.0490744, 0.90300924, 7.23044]
-INFO main bigdata.TimeSeriesAnalysis.App - 2006 ---> 06/21-09/20  :  [0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
-INFO main bigdata.TimeSeriesAnalysis.App - 2006 ---> 09/21-12/31  :  [0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
-INFO main bigdata.TimeSeriesAnalysis.App - 2006 ---> 01/01-03/20  :  [0.9607641, 0.11056611, 243.39404, 4.008657, 0.7138889, 1.6113425, 5.0184026]
-INFO main bigdata.TimeSeriesAnalysis.App - 2006 ---> 03/21-06/20  :  [1.0515958, 0.15455987, 241.23267, 4.5330095, 3.0490744, 0.90300924, 7.23044]
-INFO main bigdata.TimeSeriesAnalysis.App - 2007 ---> 06/21-09/20  :  [0.9350102, 0.11708054, 240.53383, 3.9734712, 0.6527778, 0.36319444, 6.76875]
-INFO main bigdata.TimeSeriesAnalysis.App - 2007 ---> 09/21-12/31  :  [0.8668594, 0.10641382, 242.30762, 3.6041508, 0.0, 0.53541666, 5.547222]
-INFO main bigdata.TimeSeriesAnalysis.App - 2007 ---> 01/01-03/20  :  [0.9607641, 0.11056611, 243.39404, 4.008657, 0.7138889, 1.6113425, 5.0184026]
-INFO main bigdata.TimeSeriesAnalysis.App - 2007 ---> 03/21-06/20  :  [1.0515958, 0.15455987, 241.23267, 4.5330095, 3.0490744, 0.90300924, 7.23044]
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 06/21-09/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 09/21-12/31 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2007. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2008. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2009. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 01/01-03/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.SeasonalCalculator - Averaging for season 03/21-06/20 and year 2010. 
-INFO main bigdata.TimeSeriesAnalysis.App - Working directory is : /tmp/
