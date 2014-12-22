@@ -267,12 +267,25 @@ public class App extends TimeSeries
 		BufferedWriter bufferedWrite = null;
 		try {
 			bufferedWrite = new BufferedWriter(new FileWriter(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv", true));
-			Set<Integer> outerKeySet = entry.keySet();
+			Integer[] outerKey = entry.keySet().toArray(new Integer[entry.keySet().size()]);
+			Arrays.sort(outerKey);
 			Set<String> innerKeySet;
-			for(Integer key : outerKeySet) {
-				innerKeySet = entry.get(key).keySet();
-				for(String innerKey : innerKeySet) {
-					bufferedWrite.write(key + " ---> " + innerKey + "  :  " + entry.get(key).get(innerKey).toString());
+			for(int i=0; i < outerKey.length; ++i) {
+				innerKeySet = entry.get(outerKey[i]).keySet();
+				String[] innerKey = innerKeySet.toArray(new String[innerKeySet.size()]);
+				Arrays.sort(innerKey);
+				for(int j=0; j < innerKey.length; ++j) {
+					
+					// get the season that the date range represents in words
+					String season = ServerConfiguration.getKey(innerKey[j]);
+					bufferedWrite.write(outerKey[i] + " ( " + season.substring(0, 3) + " ),");
+					List values = entry.get(outerKey[i]).get(innerKey[j]);
+					for(int k=0; k < values.size(); ++k) {
+						bufferedWrite.write(values.get(k).toString());
+						if(k != values.size() - 1) {
+							bufferedWrite.write(",");
+						}
+					}
 					//log.info(key + " ---> " + innerKey + "  :  " + entry.get(key).get(innerKey).toString());
 					bufferedWrite.write(System.getProperty("line.separator"));;
 				}
@@ -381,8 +394,7 @@ public class App extends TimeSeries
 				return 1;
 			}
 	        return 0;
-}
-	
+}	
 	
 			    public static void main( String[] args )
 			    {
@@ -451,7 +463,7 @@ public class App extends TimeSeries
 							// month/day
 							monthMap.put(SeasonalCalculator.getIntFromStringDate(date[1] + "/" + date[0]), values);
 							dateValues.put(Integer.parseInt(date[2]), monthMap);
-							log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
+							//log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
 						}
 					} catch (IOException e) {
 						log.error("Unable to read the file " + preprocessedFile.getAbsolutePath());
@@ -463,8 +475,7 @@ public class App extends TimeSeries
 
 						e.printStackTrace();
 					}
-
-			        
+		        
 			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
 			        newApp.writeMapToFile(aggregatedSeasonalLists);	        
 			    } //end of main

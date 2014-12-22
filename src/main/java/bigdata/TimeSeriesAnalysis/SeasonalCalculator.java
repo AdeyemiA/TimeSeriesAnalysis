@@ -266,7 +266,6 @@ public class SeasonalCalculator {
 				}
 			}
 			annualSeasonalMap.put(yearsArray[index], seasonalMap);
-			//System.out.println("" + yearsArray[index])
 		}
 		return annualSeasonalMap;
 	}

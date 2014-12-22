@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
@@ -133,5 +134,26 @@ public class ServerConfiguration {
 			tmpMap.put(property, (serverConfiguration.configMap.containsKey(property)) ? serverConfiguration.configMap.get(property) : null);
 		}
 		return tmpMap;
+	}
+	
+	/**
+	 * 
+	 * @param value - Value in configuration map for reverse mapping to key
+	 * @return - the key which has this value
+	 */
+	public static String getKey(String value) {
+		ServerConfiguration serverConfiguration = getInstance();
+		String valKey = null;
+		if(serverConfiguration.configMap.containsValue(value)) {
+			
+			Set<String> keys = serverConfiguration.configMap.keySet();
+			for(String key : keys) {
+				if(value.equals(serverConfiguration.configMap.get(key))) {
+					valKey = key;
+					break;
+				}
+			}
+		}
+		return valKey;
 	}
 }
