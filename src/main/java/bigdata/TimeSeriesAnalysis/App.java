@@ -49,7 +49,7 @@ public class App extends TimeSeries
 	
 	protected Map<String, Map<String, Float[]>> textMap;
 	
-	protected Map<String, Float[]> cleanedMap;
+	protected static Map<String, Float[]> cleanedMap;
 	
 	protected static String FILENAME = "household_power_consumption.txt";
 	
@@ -67,6 +67,10 @@ public class App extends TimeSeries
 		this("TimeSeries");
 	}
 	
+	/**
+	 * 
+	 * @param projectName - Args-Constructor taking a String for the application name. Default is TimeSeries
+	 */
 	public App(String projectName) {
 		super(projectName);
 		App.NAME = projectName;
@@ -78,6 +82,11 @@ public class App extends TimeSeries
 		return App.NAME;
 	}
 	
+	/**
+	 * 
+	 * @param array - Check if the/an array value(s)/element is null
+	 * @return - Return True if Empty, false otherwise
+	 */
 	public boolean isEmpty(String[] array) {
 		for(int i=0; i < array.length - 1; ++i) {
 			if(array[i] == null || "?".equals(array[i]) || array[i] == "")
@@ -86,10 +95,21 @@ public class App extends TimeSeries
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param num - Convert the Long value to Float in MB
+	 * @return - return the alternative of Long in Float MBytes
+	 */
 	public Float getMB(Long num) {
 		return (float) (num/ (1024.0*1024.0));
 	}
 	
+	/**
+	 * 
+	 * @param cumulative- the Float[] functioning as an accumulator
+	 * @param entry - Float[] entry to add to the accumulator cumulative.
+	 * @return - return the accumulator Float[] after summation
+	 */
 	public Float[] sumLists(Float[] cumulative, Float[] entry) {
 		for(int i=0; i < entry.length; ++i) {
 			cumulative[i] = cumulative[i] + entry[i]; 
@@ -97,6 +117,12 @@ public class App extends TimeSeries
 		return cumulative;
 	}
 	
+	/**
+	 * 
+	 * @param cumulative - the Float[] functioning as an accumulator 
+	 * @param entry - String[] entry to add to the accumulator cumulative. String is parsed to Float
+	 * @return - return the accumulator Float[] after summation
+	 */
 	public Float[] sumLists(Float[] cumulative, String[] entry) {
 		for(int i=0; i < cumulative.length; ++i) {
 			cumulative[i] = cumulative[i] + Float.parseFloat(entry[i+2]); 
@@ -104,6 +130,12 @@ public class App extends TimeSeries
 		return cumulative;
 	}
 	
+	/**
+	 * 
+	 * @param cumulative - Float[] to average over entries number of iterations
+	 * @param entries - number of iterations to average the cumulative over
+	 * @return - return the cumulative after averaging over entries, the number of iterations
+	 */
 	public Float[] avgLists(Float[] cumulative, int entries) {
 		for(int i=0; i < cumulative.length; ++i) {
 			cumulative[i] = cumulative[i] / entries; 
@@ -111,6 +143,11 @@ public class App extends TimeSeries
 		return cumulative;
 	}
 	
+	/**
+	 * 
+	 * @param arr - Generic Array to initialize for assured behaviour
+	 * @return - Return the initialized array of type T
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Object> T[] initArray(T[] arr) {
 		for(int i=0; i < arr.length; ++i) {
@@ -229,13 +266,15 @@ public class App extends TimeSeries
 	public void writeMapToFile(Map<Integer, Map<String, List>> entry) {
 		BufferedWriter bufferedWrite = null;
 		try {
-			bufferedWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv"), false)));
+			bufferedWrite = new BufferedWriter(new FileWriter(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv", true));
 			Set<Integer> outerKeySet = entry.keySet();
 			Set<String> innerKeySet;
 			for(Integer key : outerKeySet) {
 				innerKeySet = entry.get(key).keySet();
 				for(String innerKey : innerKeySet) {
 					bufferedWrite.write(key + " ---> " + innerKey + "  :  " + entry.get(key).get(innerKey).toString());
+					//log.info(key + " ---> " + innerKey + "  :  " + entry.get(key).get(innerKey).toString());
+					bufferedWrite.write(System.getProperty("line.separator"));;
 				}
 			}
 			
@@ -307,18 +346,18 @@ public class App extends TimeSeries
 	 */				
 				
 				sameKeyGrouping = false;
-				if(!newApp.cleanedMap.containsKey(meterReadings[0])) {
+				if(!cleanedMap.containsKey(meterReadings[0])) {
 					if(!firstRunWithKey) {
 						arr = newApp.avgLists(arr, entries);
 						newApp.writeToFile(lastKey, arr);
-						newApp.cleanedMap.put(lastKey, arr);
+						cleanedMap.put(lastKey, arr);
 					}
 					entries = 0;
 					arr = new Float[7];
 					arr = newApp.initArray(arr);
 					arr = newApp.sumLists(arr, meterReadings);
 					lastKey = meterReadings[0];
-					newApp.cleanedMap.put(lastKey, arr);
+					cleanedMap.put(lastKey, arr);
 					firstRunWithKey = false;
 					++entries;
 				}
@@ -370,7 +409,7 @@ public class App extends TimeSeries
 			        System.out.println("*****************************************");
 			        System.out.println("The size of Free Memory is : " + newApp.getMB(Runtime.getRuntime().freeMemory()));
 			        System.out.println("*****************************************");    
-			        System.out.println(newApp.cleanedMap.size());
+			        System.out.println(cleanedMap.size());
 			        
 			        
 			        String mont = ServerConfiguration.getConfiguration("autumn");
@@ -381,50 +420,29 @@ public class App extends TimeSeries
 			         *  A Map of a map. With the inner map the list of values
 			         *  and the outer map the map of months and days 
 			         */
-			        
-			        File preprocessedFile = new File(App.DATA_DIR + App.FILE_BASE + App.FILE_INDEX + ".csv");
-			        BufferedReader preprocessedFileRead = null;
-			        try {
-			        	preprocessedFileRead = new BufferedReader(new InputStreamReader(new FileInputStream(preprocessedFile)));
-					} catch (FileNotFoundException e) {
-						log.error("Unable to open file " + preprocessedFile.getAbsolutePath() + ". ");
-						log.error("Check if the file exists");
-						e.printStackTrace();
-					}
-			        
+	        
 			        // read file to extract tokens
 			        String daily = null;
-			        Map<Integer, Map<String, List>> dateValues = new ConcurrentHashMap<Integer, Map<String, List>>();
-			        Map<String, List> monthMap = null;
-			        try {
-						while((daily = preprocessedFileRead.readLine()) != null) {
-							String[] chunks = daily.split(",");
-							String[] date = chunks[0].split("/");
-		
-							// check if the year key has been stored
-							monthMap = (dateValues.containsKey(date[2])) ? dateValues.get(date[2]) : new ConcurrentHashMap<String, List>();
-							List<Float> values = new ArrayList<Float>();
-							for(int index = 1; index < chunks.length; ++index) {
-								values.add(Float.parseFloat(chunks[index]));					
-							}
-							// month/day
-							monthMap.put(date[1] + "/" + date[0], values);
-							dateValues.put(Integer.parseInt(date[2]), monthMap);
-							log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
-						}
-					} catch (IOException e) {
-						log.error("Unable to read the file " + preprocessedFile.getAbsolutePath());
-						e.printStackTrace();
-					}
-			        try {
-						preprocessedFileRead.close();
-					} catch (IOException e) {
+			        Map<Integer, Map<Integer, List>> dateValues = new ConcurrentHashMap<Integer, Map<Integer, List>>();
+			        Map<Integer, List> monthMap = null;
 
-						e.printStackTrace();
+
+					Set<String> dateSet = cleanedMap.keySet();
+					for(String dateKey : dateSet) {
+						Float[] values = cleanedMap.get(dateKey);
+						String[] date = dateKey.split("/");
+	
+						// check if the year key has been stored
+						monthMap = (dateValues.containsKey(Integer.parseInt(date[2]))) ? dateValues.get(Integer.parseInt(date[2])) : new ConcurrentHashMap<Integer, List>();
+						// month/day
+						monthMap.put(SeasonalCalculator.getIntFromStringDate(date[1] + "/" + date[0]), Arrays.asList(values));
+						dateValues.put(Integer.parseInt(date[2]), monthMap);
+					//log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
 					}
+
 			        
 			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
-			        newApp.writeMapToFile(aggregatedSeasonalLists);
-			        
+			        //newApp.writeMapToFile(dateValues);
+			        newApp.writeMapToFile(aggregatedSeasonalLists);	        
 			    } //end of main
 }
