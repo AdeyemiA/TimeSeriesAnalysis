@@ -17,6 +17,7 @@ import java.util.Vector;
 public class Predictor {
 	protected int numOfYears = 0;
 	protected static Map<Integer, Map<String, List>> trendMap;
+	protected static int numOfSeasons = 4;
 
 	// constructor passed the number of years to predict
 	public Predictor(int years, Map<Integer, Map<String, List>> trendMap) {
@@ -28,8 +29,9 @@ public class Predictor {
 	 * 
 	 * @param num - Number of years to predict values for
 	 * @param variable - The positional variable to predict (checked for validity before call)
+	 * @param trend - The map that holds the values of the variables to predict
 	 */
-	public static void predict(int num, int variable, Map<Integer, Map<String, List>> trend) {
+	public static Vector<Float> predict(int num, int variable, Map<Integer, Map<String, List>> trend) {
 		Predictor newPredictor = new Predictor(num, trend);
 		int n = 0;
 		List<List> seasonalValues = new ArrayList<List>();
@@ -65,11 +67,33 @@ public class Predictor {
 			y_hat.add(b0 + (b1 * (Integer) t.get(l)));
 		}
 		
-		// compute the Seasonal and Interference quantity from the variable and trend
+		// compute the Seasonal and Interference quantity from the variable and trend (Y/Y_hat)
 		Vector<Float> s_i = new Vector<Float>(n);
 		for(int m=0; m < y_hat.size(); ++m) {
 			s_i.add(y.get(m)/y_hat.get(m));
 		}
+		
+		Vector<Float> s = new Vector<Float>(numOfSeasons);
+		
+		//for(int i = 0; i < s.size(); ++i) {
+			//if(i == 0)
+			//Float tmp = s_i.get(0) + s_i.get(1) + s_i.get(numOfSeasons * (i+1)) + s_i.get(numOfSeasons * numOfSeasons * (i+1)) + ;
+			
+		//}
+		s.add((s_i.get(0) + s_i.get(1) + s_i.get(5) + s_i.get(9) + s_i.get(13))/5);
+		s.add((s_i.get(2) + s_i.get(6) + s_i.get(10) + s_i.get(14))/4);
+		s.add((s_i.get(3) + s_i.get(7) + s_i.get(11) + s_i.get(15))/4);
+		s.add((s_i.get(4) + s_i.get(8) + s_i.get(12) + s_i.get(16))/4);
+		
+		// forecast for the num years
+		Vector<Float> predictedValues = new Vector<Float>(num * numOfSeasons);
+		for(int i = 0; i < num; ++i){
+			for(int j = 0; j < s.size(); ++j) {
+				Float tmp = newPredictor.getTrend(b0, b1, ++n);
+				predictedValues.add(tmp * s.get(j));
+			}
+		}
+		return predictedValues;
 	}
 	
 	/**
