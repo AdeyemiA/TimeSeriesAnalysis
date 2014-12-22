@@ -58,7 +58,7 @@ public class SeasonalCalculator {
 	 */
 	private int[] getIntFromStringDate(String[] dateRange) {
 		int[] intRange = new int[2];
-		for(int i = 0; i < dateRange.length - 1; ++i) {
+		for(int i = 0; i < dateRange.length; ++i) {
 			String[] mnDay = dateRange[i].split("/");
 			intRange[i] = getIntFromStringDate(dateRange[i]);
 		}
@@ -88,8 +88,8 @@ public class SeasonalCalculator {
 		Map<Integer, Map<String, List>> annualSeasonalMap = new ConcurrentHashMap<Integer, Map<String, List>>();
 		Map<String, List> seasonalMap = new ConcurrentHashMap<String, List>();
 		Set<Integer> yearsSet = yearMap.keySet();
-		Integer[] yearsArray = (Integer[]) yearsSet.toArray();
-		Arrays.sort(yearsArray, 0, yearsArray.length - 1);
+		Integer[] yearsArray = yearsSet.toArray(new Integer[yearsSet.size()]);
+		Arrays.sort(yearsArray, 0, yearsArray.length);
 		
 		// extract the months and days corresponding to a season as a string array
 		String[] s_autumn = autumn.split("-");
@@ -103,6 +103,7 @@ public class SeasonalCalculator {
 		int[] l_summer = seasonalCalculator.getIntFromStringDate(s_summer);
 		int[] l_winter = seasonalCalculator.getIntFromStringDate(s_winter);
 		
+		System.out.println(l_autumn[0] + " " + l_autumn[1]);
 		//initialize variables
 		String season;
 		int year;
@@ -111,18 +112,20 @@ public class SeasonalCalculator {
 		List<Float> cumulative = new ArrayList<Float>();
 		
 		// get each year value for each year key
-		for(int index = 0; index < yearsArray.length - 1; ++index) {
+		for(int index = 0; index < yearsArray.length; ++index) {
 			season = null;
 			year = yearsArray[index];
-			monthlyMap = yearMap.get((Integer) year);
+			monthlyMap = yearMap.get(year);
 			Set<String> monthSet = monthlyMap.keySet();
-			String[] monthArray = (String[]) monthSet.toArray();
-			Arrays.sort(monthArray, 0, monthArray.length - 1);
+			System.out.println("There are " + monthSet.size() + " set elements before sort for year " + year);
+			String[] monthArray = monthSet.toArray(new String[monthSet.size()]);
+			Arrays.sort(monthArray, 0, monthArray.length);
 			int monthDay;
-			
+			System.out.println("There are " + monthArray.length + " inner keys for " + year + " year");
 			// get each daily value for each date key
-			for(int idx = 0; idx < monthArray.length - 1; ++idx) {
+			for(int idx = 0; idx < monthArray.length; ++idx) {
 				monthDay = seasonalCalculator.getIntFromStringDate(monthArray[idx]);
+				System.out.println("Monthday is " + monthDay + " after casting to int");
 				if((monthDay >= l_autumn[0]) && (monthDay <= l_autumn[1])) {
 					
 					// date is in the autumn season
@@ -137,7 +140,7 @@ public class SeasonalCalculator {
 						// last entry was a different season, average and initialize
 						List<Float> avgList = seasonalCalculator.averageListOfFloats(cumulative, seasonEntries);
 						seasonalMap.put(season, avgList);
-						log.info("Averaging for season " + season + " and year " + year + ". ");
+						System.out.println("Averaging for season " + season + " and year " + year + ". ");
 						season = autumn;
 						cumulative = monthlyMap.get(monthArray[idx]);
 						seasonEntries = 1;
@@ -243,10 +246,11 @@ public class SeasonalCalculator {
 	 * @return cumulative - Return the accumulator List<Float> after summing entry
 	 */
 	private List<Float> sumListOfFloats(List<Float> cumulative, List<Float> entry) {
+		List<Float> temp = new ArrayList<Float>();
 		for(int k = 0; k < cumulative.size(); ++k) {
-			cumulative.add(k, cumulative.get(k) + entry.get(k));
+			temp.add(k, cumulative.get(k) + entry.get(k));
 		}
-		return cumulative;
+		return temp;
 	}
 
 	/**
@@ -256,10 +260,11 @@ public class SeasonalCalculator {
 	 * @return cumulative - Return the accumulator List after dividing each element
 	 */
 	private List<Float> averageListOfFloats(List<Float> cumulative, int numOfIterations) {
+		List<Float> temp = new ArrayList<Float>();
 		for(int l = 0; l < cumulative.size(); ++l) {
-			cumulative.add(l, cumulative.get(l)/numOfIterations);
+			temp.add(l, cumulative.get(l)/numOfIterations);
 		}
-		return cumulative;
+		return temp;
 	}
 	
 /*	public List<Float> computeRegularSeason(Map<String, List> seasons) {
