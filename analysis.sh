@@ -50,7 +50,7 @@ START_PATH=`pwd`
 file1=household_data.zip
 file2=household_power_consumption.txt
 file3=Out*
-tmp_dir="/temp/"
+tmp_dir="/tmp/"
 
 # check if a directory
 if [[ ! -d "$tmp_dir" ]]; then
@@ -143,11 +143,6 @@ if [[ "$proc1" != "" ]] && [[ "$proc2" != "" ]] && [[ "$run_local" != "" ]]; the
 	# pass "mapreduce to the embedded script in Pigserver()"
 else	
 	cd $START_PATH/
-	#tmp_dir="/temp/"
-	#if[[ ! -d "$tmp_dir"]]
-	#	cd ~ && tmp_dir=`pwd` && mkdir "$tmp_dir/tmp/" && tmp_dir="$tmp_dir/tmp/"
-	#	cd $START_PATH/
-	#fi
 	export CLASSPATH="$CLASSPATH:$START_PATH/lib:$START_PATH/resources:$START_PATH/target"
 	echo "$CLASSPATH"
 	$JAVA_HOME/bin/java -jar target/TimeSeriesAnalysis* "$tmp_dir" "$predchoice" "$numyears"

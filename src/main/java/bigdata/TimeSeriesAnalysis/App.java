@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -489,5 +490,35 @@ public class App extends TimeSeries
 			        //predict values for all seasons for num of years
 			        Vector<Float> predictedValues = Predictor.predict(numOfYearsToPredict, variableToPredict, aggregatedSeasonalLists);
 			        System.out.println("Predicted values are " + predictedValues.toString());
+			        
+			        try {
+						PrintWriter printOut = new PrintWriter(new File(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv"));
+						int yearEnd = 2010;
+						for(int i=1; i <= numOfYearsToPredict; ++ i) {
+							printOut.write("         ");
+							printOut.write(yearEnd + i);
+							System.out.print("         ");
+							System.out.print(yearEnd + i);
+
+						}
+						printOut.write(System.getProperty("line.separator"));
+						System.out.println();
+						
+						for(int j=0; j < Integer.parseInt(ServerConfiguration.getConfiguration("seasons")); ++j) {
+							printOut.write("Season " + (j+1) + "  ");
+							System.out.print("Season " + (j+1) + "  ");
+							for(int i=0; i < numOfYearsToPredict; ++ i) {
+								printOut.write(predictedValues.get(i*4 + j).toString() + "  ");
+								System.out.print(predictedValues.get(i*4 + j).toString() + "  ");
+							}
+							printOut.write(System.getProperty("line.separator"));
+							System.out.println();
+						}
+						printOut.flush();
+						printOut.close();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			    } //end of main
 }
