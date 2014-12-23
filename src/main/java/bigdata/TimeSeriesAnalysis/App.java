@@ -20,6 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.BasicConfigurator;
@@ -401,9 +402,13 @@ public class App extends TimeSeries
 			    	//BasicConfigurator.configure();
 			    	String appName = "Default";
 			    	App newApp = null;
-			    	if(args.length == 1) {
+			    	int variableToPredict = 0;
+			    	int numOfYearsToPredict = 1;
+			    	if(args.length == 3) {
 			    		System.out.println("Run: java -jar <program.jar> <TimeSeriesName>");
 			    		App.DATA_DIR = args[0];
+			    		variableToPredict = Integer.parseInt(args[1]);
+			    		numOfYearsToPredict = Integer.parseInt(args[2]);		
 			    		System.out.println("OUT: Working directory is : " + App.DATA_DIR);
 			    		log.info("Working directory is : " + App.DATA_DIR);
 			    		newApp = new App();
@@ -413,6 +418,8 @@ public class App extends TimeSeries
 			    		appName = args[1];
 			    		newApp = new App(appName);
 			    		System.out.println( App.DEFAULT_DOMAIN_DESCRIPTION );
+			    	}else {
+			    		// bad input
 			    	}
 			
 			/*
@@ -477,6 +484,10 @@ public class App extends TimeSeries
 					}
 		        
 			        Map<Integer, Map<String, List>> aggregatedSeasonalLists = SeasonalCalculator.aggregateSeasons(dateValues);
-			        newApp.writeMapToFile(aggregatedSeasonalLists);	        
+			        newApp.writeMapToFile(aggregatedSeasonalLists);	    
+			        
+			        //predict values for all seasons for num of years
+			        Vector<Float> predictedValues = Predictor.predict(numOfYearsToPredict, variableToPredict, aggregatedSeasonalLists);
+			        System.out.println("Predicted values are " + predictedValues.toString());
 			    } //end of main
 }

@@ -103,19 +103,19 @@ public class Predictor {
 	 * @return - return the slope for the given dataset
 	 */
 	private Float getSlope(Vector t, Vector y, int n) {
-		Vector<Float> t_sqr = new Vector<Float>(t.size());
+		Vector<Integer> t_sqr = new Vector<Integer>(t.size());
 		Vector<Float> ty = new Vector<Float>(t.size());
 		Float sumy = 0.0f;
 		Float sumt = 0.0f;
 		Float sumty = 0.0f;
 		Float sumt_sqr = 0.0f;
 		for(int i=0; i < t.size(); ++i) {
-			t_sqr.add((Float) t.get(i) * (Float) t.get(i));
-			ty.add((Float) t.get(i) * (Float) y.get(i));
+			t_sqr.add( (Integer) t.get(i) * (Integer) t.get(i));
+			ty.add((Integer) t.get(i) * (Float) y.get(i));
 			sumy = sumy + (Float) y.get(i);
-			sumt = sumt + (Float) t.get(i);
+			sumt = sumt + (Integer) t.get(i);
 			sumty = sumty + (Float) ty.get(i);
-			sumt_sqr = sumt_sqr + (Float) t_sqr.get(i);
+			sumt_sqr = sumt_sqr + (Integer) t_sqr.get(i);
 		}
 		Float b1 = 0.0f;
 		b1 = (n*sumty - sumt*sumy)/(n*sumt_sqr - (sumt * sumt));
@@ -134,10 +134,10 @@ public class Predictor {
 		Float sumt = 0.0f;
 		for(int i = 0; i < t.size(); ++i) {
 			sumy += (Float) y.get(i);
-			sumt += (Float) t.get(i);
+			sumt += (Integer) t.get(i);
 		}
-		sumy = sumy/y.size();
-		sumt = sumt/t.size();
+		sumy = sumy/ (float) y.size();
+		sumt = sumt/ (float) t.size();
 		b0 = sumy - (slope * sumt);
 		return b0;
 	}
