@@ -518,7 +518,7 @@ public class App extends TimeSeries
 			        
 			        //predict values for all seasons for num of years
 			        Vector<Float> predictedValues = Predictor.predict(numOfYearsToPredict, variableToPredict, aggregatedSeasonalLists);
-			        System.out.println("Predicted values are " + predictedValues.toString());
+			        //System.out.println("Predicted values are " + predictedValues.toString());
 			        
 			        try {
 						PrintWriter printOut = new PrintWriter(new File(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv"));

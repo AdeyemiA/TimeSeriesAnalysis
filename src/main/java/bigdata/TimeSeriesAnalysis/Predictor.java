@@ -103,7 +103,7 @@ public class Predictor {
 			}
 			s.add(cumulative/entries);
 		}
-		System.out.println("s_i content is " + s_i.toString() + " and contents of s is " + s.toString());
+		//System.out.println("s_i content is " + s_i.toString() + " and contents of s is " + s.toString());
 		// forecast for the num years
 		Vector<Float> predictedValues = new Vector<Float>(num * numOfSeasons);
 		System.out.println("Size of predicted values is : " + (num * numOfSeasons));
