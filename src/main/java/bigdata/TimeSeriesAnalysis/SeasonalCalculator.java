@@ -23,20 +23,12 @@ import org.slf4j.LoggerFactory;
  */
 public class SeasonalCalculator {
 	protected static Logger log = LoggerFactory.getLogger(SeasonalCalculator.class);
-	protected static final String autumn = ServerConfiguration.getConfiguration("autumn");
-	protected static final String spring = ServerConfiguration.getConfiguration("spring");
-	protected static final String summer = ServerConfiguration.getConfiguration("summer");
-	protected static final String winter = ServerConfiguration.getConfiguration("winter");
 	protected static final int[] MONTHS_30 = new int[]{4, 6, 9, 11};
 	private static final Object m_Object = new Object();
 	private static Vector<String> seasonRange = new Vector<String>();
 	private static SeasonalCalculator seasonalCalculator = null;
 	private static final int configSeasons = Integer.parseInt(ServerConfiguration.getConfiguration("seasons"));
 	public SeasonalCalculator() {
-		//autumn = ServerConfiguration.getConfiguration("autumn");
-		//spring = ServerConfiguration.getConfiguration("spring");
-		//summer = ServerConfiguration.getConfiguration("summer");
-		//winter = ServerConfiguration.getConfiguration("winter");
 		if((Integer) configSeasons instanceof Integer) {
 			for(int i = 1; i <= configSeasons; ++i) {
 				if(ServerConfiguration.containsConfiguration("season" + i)) {
