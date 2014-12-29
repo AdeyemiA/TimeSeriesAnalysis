@@ -68,7 +68,7 @@ public class Predictor {
 		// b1 is the slope and b0 is the intercept of the trend line
 		Float b1 = newPredictor.getSlope(t, y, n);
 		Float b0 = newPredictor.getIntercept(t, y, b1);
-		System.out.println("Slope is " + b1 + " and intercept is " + b0 );
+		//System.out.println("Slope is " + b1 + " and intercept is " + b0 );
 		
 		// computing the trend line Y_hat = b0 + b1*t
 		Vector<Float> y_hat = new Vector<Float>(n);
@@ -106,7 +106,7 @@ public class Predictor {
 		//System.out.println("s_i content is " + s_i.toString() + " and contents of s is " + s.toString());
 		// forecast for the num years
 		Vector<Float> predictedValues = new Vector<Float>(num * numOfSeasons);
-		System.out.println("Size of predicted values is : " + (num * numOfSeasons));
+		//System.out.println("Size of predicted values is : " + (num * numOfSeasons));
 		for(int i = 0; i < num; ++i){
 			for(int j = 0; j < s.size(); ++j) {
 				Float tmp = newPredictor.getTrend(b0, b1, ++n);
