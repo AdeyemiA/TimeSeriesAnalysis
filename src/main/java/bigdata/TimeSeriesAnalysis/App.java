@@ -364,12 +364,8 @@ public class App extends TimeSeries
 					if(dateSplit[2].equals(yearsToSkipList[i])) {
 						continue read;
 					}
-					//System.out.println("Skipping year " + yearsToSkipList[i]);
 				}
-				
-				if(dateSplit[2].equals("2006"))
-					System.out.println("Did not skip");
-							
+									
 	/*
 	 *  Creating the key String, Map of the Float variables and 
 	 *  Compute daily averages for each data entry 
