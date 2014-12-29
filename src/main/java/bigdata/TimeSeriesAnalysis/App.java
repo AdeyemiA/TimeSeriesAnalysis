@@ -359,13 +359,15 @@ public class App extends TimeSeries
 				
 				// check if there are years to skip. dateSplit[2] is the year
 				String[] dateSplit = meterReadings[0].split("/");
-				String[] yearsToSkipList = ServerConfiguration.getConfiguration("years.to.skip").split(",");
-				for(int i=0; i < yearsToSkipList.length; ++i) {
-					if(dateSplit[2].equals(yearsToSkipList[i])) {
-						continue read;
+				if(ServerConfiguration.getConfiguration("years.to.skip") != null) {
+					String[] yearsToSkipList = ServerConfiguration.getConfiguration("years.to.skip").split(",");
+					for(int i=0; i < yearsToSkipList.length; ++i) {
+						if(dateSplit[2].equals(yearsToSkipList[i])) {
+							continue read;
+						}
 					}
-				}
-									
+				}	
+				
 	/*
 	 *  Creating the key String, Map of the Float variables and 
 	 *  Compute daily averages for each data entry 
