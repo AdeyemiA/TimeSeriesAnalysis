@@ -77,11 +77,14 @@ public class ServerConfiguration {
 					try {
 						bufferedRead = new BufferedReader(new FileReader(pathName.toString()));
 						while( (line = bufferedRead.readLine()) != null) {
-							// check if the line has a key value pairing
-							String[] configSettings = line.split("=");
-							if(configSettings.length == 2) {
-								tmpMap.put(configSettings[0].trim(), configSettings[1].trim());
-								System.out.println(configSettings[0].trim() + " = " + configSettings[1].trim());
+							
+							// check if the line has a key value pairing, and not a comment
+							if(!line.trim().startsWith("//")) {
+								String[] configSettings = line.split("=");
+								if(configSettings.length == 2) {
+									tmpMap.put(configSettings[0].trim(), configSettings[1].trim());
+									System.out.println(configSettings[0].trim() + " = " + configSettings[1].trim());
+								}
 							}
 						}
 					} catch (FileNotFoundException e) {
@@ -118,7 +121,11 @@ public class ServerConfiguration {
 	 */
 	public static String getConfiguration(String property) {
 		ServerConfiguration serverConfiguration = getInstance();
-		return (serverConfiguration.configMap.containsKey(property)) ? serverConfiguration.configMap.get(property) : null;
+		if(serverConfiguration.configMap.containsKey(property) && serverConfiguration.configMap.get(property) != null) {
+			return serverConfiguration.configMap.get(property);
+		}else {
+			return null;
+		}
 	}
 	
 	/**
@@ -155,5 +162,15 @@ public class ServerConfiguration {
 			}
 		}
 		return valKey;
+	}
+	
+	/**
+	 * 
+	 * @param key - String to check if the configuration is set in config file
+	 * @return - return true if configuration exist, false otherwise
+	 */
+	public static boolean containsConfiguration(String key) {
+		ServerConfiguration serverConfiguration = getInstance();
+		return (serverConfiguration.configMap.containsKey(key)) ? true : false;
 	}
 }

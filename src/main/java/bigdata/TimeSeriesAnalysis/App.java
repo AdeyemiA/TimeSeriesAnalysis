@@ -64,6 +64,7 @@ public class App extends TimeSeries
 	
 	protected static final String FILE_SEPARATOR = System.getProperty("file.separator");
 	
+	protected static final String PROPERTIES_FILE = "config.properties";
 	// no-args constructor
 	public App() {
 		this("TimeSeries");
@@ -109,7 +110,7 @@ public class App extends TimeSeries
 	/**
 	 * 
 	 * @param cumulative- the Float[] functioning as an accumulator
-	 * @param entry - Float[] entry to add to the accumulator cumulative.
+	 * @param entry - Float[] entry to add to the accumulator cumulative. The date and time fields have been excluded in this method call
 	 * @return - return the accumulator Float[] after summation
 	 */
 	public Float[] sumLists(Float[] cumulative, Float[] entry) {
@@ -127,7 +128,7 @@ public class App extends TimeSeries
 	 */
 	public Float[] sumLists(Float[] cumulative, String[] entry) {
 		for(int i=0; i < cumulative.length; ++i) {
-			cumulative[i] = cumulative[i] + Float.parseFloat(entry[i+2]); 
+			cumulative[i] = cumulative[i] + Float.parseFloat(entry[i+Integer.parseInt(ServerConfiguration.getConfiguration("columns.to.skip"))]); 
 		}
 		return cumulative;
 	}
@@ -147,40 +148,40 @@ public class App extends TimeSeries
 	
 	/**
 	 * 
-	 * @param arr - Generic Array to initialize for assured behaviour
+	 * @param accumulated - Generic Array to initialize for assured behaviour
 	 * @return - Return the initialized array of type T
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends Object> T[] initArray(T[] arr) {
-		for(int i=0; i < arr.length; ++i) {
-			if(arr[i] instanceof String)
-				arr[i] = (T) "";
-			else if(arr[i] instanceof Integer)
-				arr[i] = (T) new Integer(0);
-			else if(arr[i] instanceof Float)
-				arr[i] = (T) new Float(0.0f);
-			else if(arr[i] instanceof Double)
-				arr[i] = (T) new Double(0.0);
+	public <T extends Object> T[] initArray(T[] accumulated) {
+		for(int i=0; i < accumulated.length; ++i) {
+			if(accumulated[i] instanceof String)
+				accumulated[i] = (T) "";
+			else if(accumulated[i] instanceof Integer)
+				accumulated[i] = (T) new Integer(0);
+			else if(accumulated[i] instanceof Float)
+				accumulated[i] = (T) new Float(0.0f);
+			else if(accumulated[i] instanceof Double)
+				accumulated[i] = (T) new Double(0.0);
 			else
-				arr[i] = (T) new Object();
+				accumulated[i] = (T) new Object();
 		}
-		return arr;
+		return accumulated;
 	}
 	
-	public Float[] initArray(Float[] arr) {
-		for(int i=0; i < arr.length; ++i) {
-			arr[i] = new Float(0.0f);
+	public Float[] initArray(Float[] accumulated) {
+		for(int i=0; i < accumulated.length; ++i) {
+			accumulated[i] = new Float(0.0f);
 		}
-		return arr;
+		return accumulated;
 	}
 	
 	/**
 	 * 
-	 * @param key - Takes a string key and associates to the array arr
-	 * @param arr - Array that is written to file with an association with the String key
+	 * @param key - Takes a string key and associates to the array accumulated
+	 * @param accumulated - Array that is written to file with an association with the String key
 	 * @throws IOException
 	 */
-	public <T> void writeToFile(String key, Float[] arr) throws IOException {
+	public <T> void writeToFile(String key, Float[] accumulated) throws IOException {
 		BufferedWriter outWriter = null;
         try {
 			outWriter = new BufferedWriter(new FileWriter(App.DATA_DIR + App.FILE_BASE + App.FILE_INDEX + ".csv", true));
@@ -189,10 +190,10 @@ public class App extends TimeSeries
 				//String header = "Date,Global_active_power,Global_reactive_power,Voltage,Global_intensity,Sub_metering_1,Sub_metering_2,Sub_metering_3";
 				//outWriter.write(header);
 				//outWriter.write(System.getProperty("line.separator"));
-				for(int i=0; i < arr.length; ++i) {
+				for(int i=0; i < accumulated.length; ++i) {
 					
-					s.append(arr[i]);
-					if(i != arr.length - 1) {
+					s.append(accumulated[i]);
+					if(i != accumulated.length - 1) {
 						s.append(",");
 					}
 				}
@@ -269,8 +270,12 @@ public class App extends TimeSeries
 		BufferedWriter bufferedWrite = null;
 		try {
 			bufferedWrite = new BufferedWriter(new FileWriter(App.DATA_DIR + App.FILE_BASE + "" + ++App.FILE_INDEX + ".csv", true));
+			
+			// get the years as an Integer array in sorted order
 			Integer[] outerKey = entry.keySet().toArray(new Integer[entry.keySet().size()]);
 			Arrays.sort(outerKey);
+			
+			// the innerMap's key is a date range for each season i.e. 01/01-03/20
 			Set<String> innerKeySet;
 			for(int i=0; i < outerKey.length; ++i) {
 				innerKeySet = entry.get(outerKey[i]).keySet();
@@ -279,8 +284,9 @@ public class App extends TimeSeries
 				for(int j=0; j < innerKey.length; ++j) {
 					
 					// get the season that the date range represents in words
-					String season = ServerConfiguration.getKey(innerKey[j]);
-					bufferedWrite.write(outerKey[i] + " ( " + season.substring(0, 3) + " ),");
+					String season = ServerConfiguration.getConfiguration(innerKey[j]);
+					//System.out.println("The inner key is " + innerKey[j] + " and the season is " + season);
+					bufferedWrite.write(outerKey[i] + " ( " + season + " ),");
 					List values = entry.get(outerKey[i]).get(innerKey[j]);
 					for(int k=0; k < values.size(); ++k) {
 						bufferedWrite.write(values.get(k).toString());
@@ -335,53 +341,57 @@ public class App extends TimeSeries
         BufferedReader bufferedRead = new BufferedReader(inputStream);
         String data;
         int entries = 0;
-        Float[] arr = null;
-        boolean sameKeyGrouping = false;
+        Float[] accumulated = null;
         boolean firstRunWithKey = true;
         String lastKey = null;
         try {
-			Files.deleteIfExists(FileSystems.getDefault().getPath("data", "Out*"));
-		} catch (IOException e1) {
-
-			e1.printStackTrace();
-		}
-        try {
 			while((data = bufferedRead.readLine()) != null) {
 				String[] meterReadings = data.split(";");
+				
+				// check if the reading is the heading and skip
 				if("Date".equals(meterReadings[0])) 
 					continue;
+				
+				// check if the reading is empty and skip line
 				if(newApp.isEmpty(meterReadings)) 
 					continue;
 				
 	/*
 	 *  Creating the key String, Map of the Float variables and 
 	 *  Compute daily averages for each data entry 
-	 *  meterReadings[0] contains the date
-	 *  meterReadings[1] contains the time every minute
+	 *  meterReadings[0] is the date
+	 *  meterReadings[1] is the time-stamped per minute
 	 */				
 				
-				sameKeyGrouping = false;
 				if(!cleanedMap.containsKey(meterReadings[0])) {
+					
+					// if the current key has at least one iteration, compute average of the 
 					if(!firstRunWithKey) {
-						arr = newApp.avgLists(arr, entries);
-						newApp.writeToFile(lastKey, arr);
-						cleanedMap.put(lastKey, arr);
+						accumulated = newApp.avgLists(accumulated, entries);
+						newApp.writeToFile(lastKey, accumulated);
+						cleanedMap.put(lastKey, accumulated);
 					}
 					entries = 0;
-					arr = new Float[7];
-					arr = newApp.initArray(arr);
-					arr = newApp.sumLists(arr, meterReadings);
+					
+					// the first 2 meterReadings are Date and Time fields, others are the values to predict
+					accumulated = new Float[meterReadings.length - Integer.parseInt(ServerConfiguration.getConfiguration("columns.to.skip"))];
+					accumulated = newApp.initArray(accumulated);
+					accumulated = newApp.sumLists(accumulated, meterReadings);
 					lastKey = meterReadings[0];
-					cleanedMap.put(lastKey, arr);
+					cleanedMap.put(lastKey, accumulated);
 					firstRunWithKey = false;
 					++entries;
 				}
 				else {
-					sameKeyGrouping = true;
-					arr = newApp.sumLists(arr, meterReadings);
+					accumulated = newApp.sumLists(accumulated, meterReadings);
 					++entries;
 				}
 			}
+			
+			// accumulate the last key read and save in map
+			accumulated = newApp.avgLists(accumulated, entries);
+			newApp.writeToFile(lastKey, accumulated);
+			cleanedMap.put(lastKey, accumulated);
 		} catch (IOException e) {
 			log.error("Unable to read from file: ", App.DATA_DIR + App.FILENAME);
 				e.printStackTrace();
@@ -406,14 +416,20 @@ public class App extends TimeSeries
 			    	int variableToPredict = 0;
 			    	int numOfYearsToPredict = 1;
 			    	if(args.length == 3) {
-			    		System.out.println("Run: java -jar <program.jar> <TimeSeriesName>");
+			    		System.out.println("Run: java -jar <program.jar> <work_directory (optional)> <variable_to_predict> <num_of_years>");
 			    		App.DATA_DIR = args[0];
+			    		
+			    		// get the variables for prediction
 			    		variableToPredict = Integer.parseInt(args[1]);
 			    		numOfYearsToPredict = Integer.parseInt(args[2]);		
 			    		System.out.println("OUT: Working directory is : " + App.DATA_DIR);
 			    		log.info("Working directory is : " + App.DATA_DIR);
 			    		newApp = new App();
 			    		int exitCode = runLocal(newApp);
+			    		if(exitCode == 1) {
+			    			log.error("An error occured while reading the input file : " + App.DATA_DIR + App.FILENAME);
+			    			System.exit(1);
+			    		}
 			    	}
 			    	else if (args.length == 2) {
 			    		appName = args[1];
@@ -431,9 +447,16 @@ public class App extends TimeSeries
 			        System.out.println("*****************************************");    
 			        System.out.println(cleanedMap.size());
 			        
-			        
-			        String mont = ServerConfiguration.getConfiguration("autumn");
-			        System.out.println("The autumn months is : " + mont);
+			        String mont;
+			        int configSeasons = Integer.parseInt(ServerConfiguration.getConfiguration("seasons"));
+			        if((Integer) configSeasons == null) {
+			        	log.error("The value for seasons has not been set in the " + App.PROPERTIES_FILE + " file");
+			        	System.exit(1);
+			        }
+			        System.out.println("The seasons are : ");
+			        for(int i = 1; i <= configSeasons; ++i) {
+			        	System.out.println("season" + i + " : " + ServerConfiguration.getConfiguration("season" + i));
+			        }
 			        
 			        /*
 			         *  Extract values from the output file and aggregate into 
@@ -458,6 +481,10 @@ public class App extends TimeSeries
 					}
 			        
 			        try {
+			        	// date[0] - day
+			        	// date[1] - month
+			        	// date[2] - year
+			        	// chunks[1:end] - float values of readings
 						while((daily = preprocessedFileRead.readLine()) != null) {
 							String[] chunks = daily.split(",");
 							String[] date = chunks[0].split("/");
@@ -468,7 +495,9 @@ public class App extends TimeSeries
 							for(int index = 1; index < chunks.length; ++index) {
 								values.add(Float.parseFloat(chunks[index]));					
 							}
-							// month/day
+							
+							// convert month/day to integer (month * 100 + day) and store as key in inner map
+							// conversion is used for comparison with date ranges
 							monthMap.put(SeasonalCalculator.getIntFromStringDate(date[1] + "/" + date[0]), values);
 							dateValues.put(Integer.parseInt(date[2]), monthMap);
 							//log.info(date[2] + "/" + date[1] + "/" + date[0] + ":" + values.toString());
@@ -496,20 +525,20 @@ public class App extends TimeSeries
 						int yearEnd = 2010;
 						for(int i=1; i <= numOfYearsToPredict; ++ i) {
 							printOut.write("         ");
-							printOut.write(yearEnd + i);
+							printOut.print(yearEnd + i);
 							System.out.print("         ");
 							System.out.print(yearEnd + i);
 
 						}
 						printOut.write(System.getProperty("line.separator"));
 						System.out.println();
-						
-						for(int j=0; j < Integer.parseInt(ServerConfiguration.getConfiguration("seasons")); ++j) {
+						int seasons = Integer.parseInt(ServerConfiguration.getConfiguration("seasons"));
+						for(int j=0; j < seasons; ++j) {
 							printOut.write("Season " + (j+1) + "  ");
 							System.out.print("Season " + (j+1) + "  ");
 							for(int i=0; i < numOfYearsToPredict; ++ i) {
-								printOut.write(predictedValues.get(i*4 + j).toString() + "  ");
-								System.out.print(predictedValues.get(i*4 + j).toString() + "  ");
+								printOut.write(predictedValues.get(i*seasons + j).toString() + "  ");
+								System.out.print(predictedValues.get(i*seasons + j).toString() + "  ");
 							}
 							printOut.write(System.getProperty("line.separator"));
 							System.out.println();
